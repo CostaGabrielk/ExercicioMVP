@@ -24,18 +24,17 @@
             android:hint="Digite o seu usuario" />
 
         <EditText
-
             android:id="@+id/password_id"
-            android:password="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Digite a sua senha" />
+            android:hint="Digite a sua senha"
+            android:password="true" />
 
         <Button
-            android:layout_gravity="center"
             android:id="@+id/logar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Logar" />
 
     </LinearLayout>

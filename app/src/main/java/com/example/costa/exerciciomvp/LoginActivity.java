@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class LoginActivity extends AppCompatActivity implements Login{
+public class LoginActivity extends AppCompatActivity implements Login.View {
 
     @BindView(R2.id.user_id)
     TextView userID;
@@ -33,21 +33,21 @@ public class LoginActivity extends AppCompatActivity implements Login{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Intent intent = getIntent();
 
         ButterKnife.bind(this);
         presenter = new PresenterLogin(this);
     }
 
-    public void exibirToast(){
-        Toast.makeText(getApplicationContext(), "Usuario ou senha invalido", Toast.LENGTH_LONG);
+    public void exibirToast() {
+        Toast torradinha = Toast.makeText(this, "Usuario ou senha invalido", Toast.LENGTH_LONG);
+        torradinha.show();
     }
 
     @OnClick(R2.id.logar)
-    void verificar(){
+    void verificar() {
         String usrid = userID.getText().toString();
         String pswdid = passwordID.getText().toString();
-        presenter.verificar(usrid,pswdid);
+        presenter.verificar(usrid, pswdid);
     }
 
 }

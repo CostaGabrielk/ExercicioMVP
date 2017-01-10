@@ -1,14 +1,14 @@
 package com.example.costa.exerciciomvp.presenter;
 
 
-import android.app.Activity;
 import android.content.Intent;
 
-import com.example.costa.exerciciomvp.HomeActivity;
+
 import com.example.costa.exerciciomvp.LoginActivity;
+import com.example.costa.exerciciomvp.task.Login;
 
 
-public class PresenterLogin {
+public class PresenterLogin implements Login.presenter {
 
     LoginActivity activity;
 
@@ -18,13 +18,11 @@ public class PresenterLogin {
 
     public void verificar(String usrid, String pswdid) {
         if (usrid.equals("usuario") && pswdid.equals("mvp")) {
-
-            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-            
-            LoginActivity.this.startActivity(intent);
-
+            Intent intent = new Intent("com.example.costa.exerciciomvp.HomeActivity");
+            activity.startActivity(intent);
+        } else {
+            activity.exibirToast();
         }
-        activity.exibirToast();
     }
 
 }
